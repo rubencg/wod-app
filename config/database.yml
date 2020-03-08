@@ -58,6 +58,8 @@ test:
 #
 production:
   <<: *default
-  database: wod_app_production
-  username: wod_app
-  password: <%= ENV['WOD_APP_DATABASE_PASSWORD'] %>
+  database: d7uvemqqpv6n8t
+  username: uwsvylgtqnjrit
+  password: 05b02bafb00948e948826c048996b3decbb9a12d5fd453654f4d6e5fc6f39d36
+  host: ec2-54-80-184-43.compute-1.amazonaws.com
+  port: 5432
