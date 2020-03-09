@@ -4,7 +4,7 @@
   <% @workouts.each do |wod| %>    
     <div class="card wod-card">
       <div class="card-header">
-        <%= wod.Title %> <span class="badge badge-secondary"><%= wod.ScheduledDateInteger %></span>
+        <%= wod.Title %> <span class="badge badge-secondary"><%= wod.Date().strftime('%e-%b-%Y') %></span>
       </div>
       <div class="card-body">
         <p class="card-text"><%= wod.Description.html_safe %></p>
