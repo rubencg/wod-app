@@ -4,12 +4,13 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.where(WhiteBoardDisplayOrder: 1).order(:ScheduledDateInteger, :WhiteBoardDisplayOrder)
+    @workouts = Workout.order(:ScheduledDateInteger, :WhiteBoardDisplayOrder)
   end
 
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @wods = Workout.where(ScheduledDateInteger: @workout.ScheduledDateInteger)
   end
 
   # GET /workouts/new

@@ -1,31 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Workouts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Scheduleddateinteger</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @workouts.each do |workout| %>
-      <tr>
-        <td><%= workout.ScheduledDateInteger %></td>
-        <td><%= workout.Title %></td>
-        <td><%= workout.Description.html_safe %></td>
-        <td><%= link_to 'Show', workout %></td>
-        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-        <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Workout', new_workout_path %>
+<div class="d-flex flex-wrap justify-content-center">
+  <% @workouts.each do |wod| %>    
+    <div class="card wod-card">
+      <div class="card-header">
+        <%= wod.Title %> <span class="badge badge-secondary"><%= wod.ScheduledDateInteger %></span>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= wod.Description.html_safe %></p>
+      </div>
+      <div class="card-footer">
+        <a href="<%= workout_path(wod) %>" class="btn btn-primary">Open Wod</a>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,29 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Scheduleddateinteger:</strong>
-  <%= @workout.ScheduledDateInteger %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @workout.Type %>
-</p>
-
-<p>
-  <strong>Whiteboarddisplayorder:</strong>
-  <%= @workout.WhiteBoardDisplayOrder %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @workout.Title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @workout.Description.html_safe %>
-</p>
-
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<% @wods.each do |wod| %>
+  <div class="card wod-detail-card">
+    <div class="card-header">
+      <%= wod.Title %>
+    </div>
+    <div class="card-body">
+      <%= wod.Description.html_safe %>
+    </div>
+  </div>
+<% end %>
