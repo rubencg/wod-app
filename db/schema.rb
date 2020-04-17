@@ -10,20 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_141939) do
+ActiveRecord::Schema.define(version: 2020_03_08_152635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "workouts", force: :cascade do |t|
-    t.integer "ScheduledDateInteger"
-    t.string "Type"
-    t.integer "WhiteBoardDisplayOrder"
-    t.string "Title"
-    t.text "Description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_main"
-  end
 
 end
