@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_032446) do
+ActiveRecord::Schema.define(version: 2020_04_18_033245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 2020_04_18_032446) do
   create_table "movements_wods", id: false, force: :cascade do |t|
     t.bigint "movement_id", null: false
     t.bigint "wod_id", null: false
+  end
+
+  create_table "personal_records", force: :cascade do |t|
+    t.integer "minutes"
+    t.integer "seconds"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "movement_id", null: false
+    t.index ["movement_id"], name: "index_personal_records_on_movement_id"
+    t.index ["user_id"], name: "index_personal_records_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,6 +87,8 @@ ActiveRecord::Schema.define(version: 2020_04_18_032446) do
     t.index ["category_id"], name: "index_wods_on_category_id"
   end
 
+  add_foreign_key "personal_records", "movements"
+  add_foreign_key "personal_records", "users"
   add_foreign_key "wod_logs", "users"
   add_foreign_key "wod_logs", "wods"
   add_foreign_key "wods", "categories"
