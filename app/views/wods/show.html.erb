@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @wod.title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @wod.notes %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @wod.description %>
+</p>
+
+<p>
+  <strong>Week name:</strong>
+  <%= @wod.week_name %>
+</p>
+
+<p>
+  <strong>Is main:</strong>
+  <%= @wod.is_main %>
+</p>
+
+<%= link_to 'Edit', edit_wod_path(@wod) %> |
+<%= link_to 'Back', wods_path %>

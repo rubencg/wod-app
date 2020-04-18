@@ -1,0 +1,42 @@
+<%= form_with(model: wod, local: true) do |form| %>
+  <% if wod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wod.errors.count, "error") %> prohibited this wod from being saved:</h2>
+
+      <ul>
+        <% wod.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :week_name %>
+    <%= form.text_field :week_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_main %>
+    <%= form.check_box :is_main %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

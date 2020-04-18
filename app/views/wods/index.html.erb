@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Description</th>
+      <th>Week name</th>
+      <th>Is main</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wods.each do |wod| %>
+      <tr>
+        <td><%= wod.title %></td>
+        <td><%= wod.notes %></td>
+        <td><%= wod.description %></td>
+        <td><%= wod.week_name %></td>
+        <td><%= wod.is_main %></td>
+        <td><%= link_to 'Show', wod %></td>
+        <td><%= link_to 'Edit', edit_wod_path(wod) %></td>
+        <td><%= link_to 'Destroy', wod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wod', new_wod_path %>
