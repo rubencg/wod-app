@@ -27,3 +27,11 @@ wod.movements << double_under
 wod.movements << sit_up
 
 puts "Created 2 movements"
+
+# Initialize first account:
+User.create! do |u|
+    u.email = 'test@test.com'
+    u.password = 'password'
+end
+
+puts "Created user test"
