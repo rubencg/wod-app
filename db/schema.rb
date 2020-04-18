@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_025204) do
+ActiveRecord::Schema.define(version: 2020_04_18_031646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 2020_04_18_025204) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wod_logs", force: :cascade do |t|
+    t.integer "minutes"
+    t.integer "seconds"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wod_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_wod_logs_on_user_id"
+    t.index ["wod_id"], name: "index_wod_logs_on_wod_id"
+  end
+
   create_table "wods", force: :cascade do |t|
     t.string "title"
     t.text "notes"
@@ -58,5 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_025204) do
     t.index ["category_id"], name: "index_wods_on_category_id"
   end
 
+  add_foreign_key "wod_logs", "users"
+  add_foreign_key "wod_logs", "wods"
   add_foreign_key "wods", "categories"
 end
