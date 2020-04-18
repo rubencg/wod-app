@@ -20,6 +20,9 @@
             <div class="navbar-nav">
               <%= link_to "Home", wods_path, class: 'nav-item nav-link' %>
             </div>
+            <div class="navbar-nav">
+              <%= link_to "Create Rich's Wod", wod_creator_create_path, class: 'nav-item nav-link' %>
+            </div>
           </div>
           <form class="form-inline">
             <%= link_to destroy_user_session_path, :method => :delete, :class => 'nav-item nav-link' do %>

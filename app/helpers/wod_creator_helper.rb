@@ -1,0 +1,2 @@
+module WodCreatorHelper
+end

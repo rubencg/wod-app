@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'wod_creator/create'
   devise_for :users
   resources :movements
   resources :wods
