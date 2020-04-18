@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'wod_creator/create'
+  post 'wod_creator/upload', to: 'wod_creator#upload'
   devise_for :users
   resources :movements
   resources :wods

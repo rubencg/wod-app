@@ -15,7 +15,7 @@ puts "Created 3 initial categories"
 
 wod = Wod.create!(title: "Annie", description: "50-40-30-20-10</br>Double-Unders</br>Sit-Ups</br>Beginner: 10-12 minutes</br>Intermediate: 8-10 minutes</br>Advanced: 7-8 minutes</br>Elite: <6 minutes</br>",
     notes: "Complete the work in the order listed: 50 Double-Unders, followed by 50 Sit-Ups. Then 40 Double-Unders, followed by 40 Sit-Ups. Then 30 of each. Then 20 of each. Then 10 of each.",
-    category_id: cat.id
+    category_id: cat.id, is_main: true
 )
 
 puts "Created 1 wod"

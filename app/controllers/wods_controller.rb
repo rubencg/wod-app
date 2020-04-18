@@ -4,7 +4,7 @@ class WodsController < ApplicationController
   # GET /wods
   # GET /wods.json
   def index
-    @wods = Wod.all
+    @wods = Wod.main_wods
   end
 
   # GET /wods/1
