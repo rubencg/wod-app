@@ -24,8 +24,7 @@ class WodsController < ApplicationController
   # POST /wods
   # POST /wods.json
   def create
-    @wod = Wod.new(wod_params)
-
+    @wod = Wod.new(wod_params.merge(is_main: true))
     respond_to do |format|
       if @wod.save
         format.html { redirect_to @wod, notice: 'Wod was successfully created.' }
@@ -69,6 +68,6 @@ class WodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wod_params
-      params.require(:wod).permit(:title, :notes, :description, :week_name, :is_main)
+      params.require(:wod).permit(:title, :notes, :description, :category_id)
     end
 end

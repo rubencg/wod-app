@@ -1,5 +1,13 @@
 <h1>Wods</h1>
 <hr>
+  <div class="row">
+    <div class="col-8"></div>
+    <div class="col-4">
+      <div class="float-right wod-top-buttons">
+        <a href="<%= new_wod_path %>" class="btn btn-success">New Wod</a>
+      </div>
+    </div>
+  </div>
 <div class="d-flex flex-wrap justify-content-center">
   <% @wods.each do |wod| %>    
     <div class="card wod-card">
@@ -7,7 +15,7 @@
         <%= wod.title %>
       </div>
       <div class="card-body">
-        <p class="card-text"><%= wod.description.html_safe %></p>
+        <p class="card-text"><%= wod.desc_html %></p>
       </div>
       <div class="card-footer">
         <a href="<%= wod_path(wod) %>" class="btn btn-primary">Open Wod</a>

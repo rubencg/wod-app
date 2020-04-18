@@ -7,4 +7,12 @@ class Wod < ApplicationRecord
     def self.main_wods
         where(is_main: true)
     end
+
+    def desc_html
+        description.gsub(/\n/, '<br/>').html_safe
+    end
+
+    def notes_html
+        notes.gsub(/\n/, '<br/>').html_safe
+    end
 end

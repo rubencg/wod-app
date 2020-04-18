@@ -17,8 +17,8 @@ class WodCreatorController < ApplicationController
     wods.each do |wod|
       Wod.create!(
           title: wod['title'],
-          notes: wod['athletesNotes'].gsub("\n","<br>"),
-          description: wod['description'].gsub("\n","<br>"),
+          notes: wod['athletesNotes'],
+          description: wod['description'],
           week_name: params['week-name'],
           is_main: wod['is_main'].nil? ? false : wod['is_main'],
           category_id: Category.rich_category.id,

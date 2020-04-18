@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create categories
-Category.create!(name: "Rich Froning", description: "All these wods come from the SugarWod paid app from Rich Froning")
+Category.create!(name: "Richs", description: "All these wods come from the SugarWod paid app from Rich")
 Category.create!(name: "Custom", description: "These are wods that we create out of other sources like instagram, twitter, browsing the web, etc.")
 cat = Category.create!(name: "Benchmark", description: "	All these wods are pre-defined crossfit wods")
 
 puts "Created 3 initial categories"
 
-wod = Wod.create!(title: "Annie", description: "50-40-30-20-10</br>Double-Unders</br>Sit-Ups</br>Beginner: 10-12 minutes</br>Intermediate: 8-10 minutes</br>Advanced: 7-8 minutes</br>Elite: <6 minutes</br>",
+wod = Wod.create!(title: "Annie", description: "50-40-30-20-10\nDouble-Unders\nSit-Ups\nBeginner: 10-12 minutes\nIntermediate: 8-10 minutes\nAdvanced: 7-8 minutes\nElite: <6 minutes\n",
     notes: "Complete the work in the order listed: 50 Double-Unders, followed by 50 Sit-Ups. Then 40 Double-Unders, followed by 40 Sit-Ups. Then 30 of each. Then 20 of each. Then 10 of each.",
     category_id: cat.id, is_main: true
 )
