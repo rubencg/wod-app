@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :movements
   resources :wods
   resources :categories
   # root 'workouts#index'
