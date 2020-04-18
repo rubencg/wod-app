@@ -1,5 +1,6 @@
 class WodsController < ApplicationController
   before_action :set_wod, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, :only => [:index]
 
   # GET /wods
   # GET /wods.json
