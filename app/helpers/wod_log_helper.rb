@@ -1,0 +1,2 @@
+module WodLogHelper
+end

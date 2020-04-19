@@ -1,0 +1,44 @@
+<%= form_for(:wod_log, url: wod_log_index_path, method: 'post') do |form| %>
+  <% if wod_log.errors.any? %>
+    <div id="error_explanation">
+      <%= pluralize(wod_log.errors.count, "error") %> prohibited this wod from being saved:
+
+      <ul>
+        <% wod_log.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :minutes %>
+        <%= form.number_field :minutes, class: 'form-control', autofocus: true %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :seconds %>
+        <%= form.number_field :seconds, class: "form-control", rows: 6 %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :notes %>
+        <%= form.text_area :notes, class: "form-control", rows: 6 %>
+      </div>
+    </div>
+  </div>
+
+  <%= hidden_field_tag 'wod_id', wod_id %>
+
+  <div class="form-group">
+    <%= form.submit "Create", class: "btn btn-success" %>
+  </div>
+
+<% end %>
