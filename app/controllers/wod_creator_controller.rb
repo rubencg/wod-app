@@ -22,7 +22,8 @@ class WodCreatorController < ApplicationController
           week_name: params['week_name'],
           is_main: wod['is_main'].nil? ? false : wod['is_main'],
           category_id: Category.rich_category.id,
-          order: wod['whiteboardDisplayOrder']
+          order: wod['whiteboardDisplayOrder'],
+          wod_group: wod['scheduledDateInteger']
       )
     end
   end

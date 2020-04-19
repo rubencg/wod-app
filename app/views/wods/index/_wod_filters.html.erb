@@ -20,7 +20,7 @@
         <div class="form-group">
           <%= form.label :week_name %>
           <%= collection_select(:search, :week_name, Wod.available_weeks, :week_name, :week_name, {:prompt => "Select Week",
-                                                                                  selected: params['search'] ? params['search']['week_name'] : ""},
+                                                                                                   selected: params['search'] ? params['search']['week_name'] : ""},
                                 {:class => 'form-control'}) %>
         </div>
       </div>

@@ -1,29 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @wod.title %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @wod.notes_html %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @wod.desc_html %>
-</p>
-
-<p>
-  <strong>Week name:</strong>
-  <%= @wod.week_name %>
-</p>
-
-<p>
-  <strong>Is main:</strong>
-  <%= @wod.is_main %>
-</p>
-
-<%= link_to 'Edit', edit_wod_path(@wod) %> |
-<%= link_to 'Back', wods_path %>
+<% @wods.each do |wod| %>
+  <div class="card wod-detail-card">
+    <div class="card-header">
+      <%= wod.title %>
+    </div>
+    <div class="card-body">
+      <%= wod.desc_html %>
+    </div>
+  </div>
+<% end %>

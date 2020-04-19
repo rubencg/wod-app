@@ -5,7 +5,7 @@ class Wod < ApplicationRecord
     has_and_belongs_to_many :users
 
     def self.main_wods
-        where(is_main: true)
+        where(is_main: true).order(:wod_group)
     end
 
     def self.available_weeks

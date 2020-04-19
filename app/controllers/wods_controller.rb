@@ -26,6 +26,11 @@ class WodsController < ApplicationController
   # GET /wods/1
   # GET /wods/1.json
   def show
+    if @wod.week_name.blank?
+      @wods = Wod.where(id: @wod.id)
+    else
+      @wods = Wod.where(wod_group: @wod.wod_group)
+    end
   end
 
   # GET /wods/new
