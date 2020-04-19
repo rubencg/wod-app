@@ -1,6 +1,10 @@
 class WodLogController < ApplicationController
   before_action :set_wod, only: [:new, :create]
 
+  def index
+    @wod_logs = WodLog.where(user_id: current_user.id)
+  end
+
   def new
     @wod_log = WodLog.new
   end
