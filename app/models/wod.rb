@@ -8,6 +8,10 @@ class Wod < ApplicationRecord
         where(is_main: true)
     end
 
+    def self.available_weeks
+        where.not(week_name: nil).select(:week_name).distinct
+    end
+
     def desc_html
         description.gsub(/\n/, '<br/>').html_safe
     end

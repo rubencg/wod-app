@@ -19,7 +19,7 @@ class WodCreatorController < ApplicationController
           title: wod['title'],
           notes: wod['athletesNotes'],
           description: wod['description'],
-          week_name: params['week-name'],
+          week_name: params['week_name'],
           is_main: wod['is_main'].nil? ? false : wod['is_main'],
           category_id: Category.rich_category.id,
           order: wod['whiteboardDisplayOrder']

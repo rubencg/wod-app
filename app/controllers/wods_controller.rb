@@ -4,7 +4,23 @@ class WodsController < ApplicationController
   # GET /wods
   # GET /wods.json
   def index
-    @wods = Wod.main_wods
+    if params[:search]
+      @wods = Wod.main_wods
+      unless search_params[:name].blank?
+        @wods = @wods.where("lower(title) LIKE '%#{search_params[:name].downcase}%'")
+      end
+      unless search_params[:category_id].blank?
+        @wods = @wods.where(category_id: search_params[:category_id])
+      end
+      unless search_params[:week_name].blank?
+        @wods = @wods.where("lower(week_name) LIKE '%#{search_params[:week_name].downcase}%'")
+      end
+    else
+      @wods = Wod.main_wods
+    end
+  end
+
+  def filter
   end
 
   # GET /wods/1
@@ -61,13 +77,18 @@ class WodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wod
-      @wod = Wod.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def wod_params
-      params.require(:wod).permit(:title, :notes, :description, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wod
+    @wod = Wod.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def wod_params
+    params.require(:wod).permit(:title, :notes, :description, :category_id)
+  end
+
+  def search_params
+    params.require(:search).permit(:name, :category_id, :week_name)
+  end
 end
