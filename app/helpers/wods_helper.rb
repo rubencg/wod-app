@@ -1,11 +1,17 @@
 module WodsHelper
-  def filter_buttons form, search_params
+  def filter_buttons(form, search_params)
     content_tag :div, class: 'row' do
       content_tag :div, class: 'col-12' do
         concat(
             search_filter_button(form) + clear_filter_button(search_params)
         )
       end
+    end
+  end
+
+  def show_notes(wod)
+    unless wod.notes_html.blank?
+      render 'wods/show/notes', notes: wod.notes_html
     end
   end
 
