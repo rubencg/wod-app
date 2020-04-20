@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :wod_logs
   has_many :personal_records
   has_and_belongs_to_many :wods
+
+  def has_wod_id(wod_id)
+    wods.where(id: wod_id).any?
+  end
 end

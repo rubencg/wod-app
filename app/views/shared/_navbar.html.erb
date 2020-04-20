@@ -14,6 +14,9 @@
       <div class="navbar-nav">
         <%= link_to "Wod logs", wod_log_index_path, class: 'nav-item nav-link' %>
       </div>
+      <div class="navbar-nav">
+        <%= link_to "Favorites", favorites_path, class: 'nav-item nav-link' %>
+      </div>
     </div>
     <form class="form-inline">
       <%= link_to destroy_user_session_path, :method => :delete, :class => 'nav-item nav-link' do %>

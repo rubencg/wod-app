@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :wod_log, :only => [:new, :show, :create, :index]
   resources :movements
-  resources :wods
+  get 'favorites', to: 'wods#favorites'
+  resources :wods do
+    member do
+      post '/mark_favorite', to: 'wods#mark_favorite'
+    end
+  end
   resources :categories
 
   root 'wods#index'

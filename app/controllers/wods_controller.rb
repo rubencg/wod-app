@@ -20,9 +20,6 @@ class WodsController < ApplicationController
     end
   end
 
-  def filter
-  end
-
   # GET /wods/1
   # GET /wods/1.json
   def show
@@ -79,6 +76,20 @@ class WodsController < ApplicationController
       format.html { redirect_to wods_url, notice: 'Wod was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def favorites
+    @wods = current_user.wods
+  end
+
+  def mark_favorite
+    wod_id = params['id']
+    if current_user.wods.where(id: wod_id).any?
+      current_user.wods.delete(wod_id)
+    else
+      current_user.wods << Wod.find(wod_id)
+    end
+    redirect_to :action => 'show', :id => wod_id
   end
 
   private

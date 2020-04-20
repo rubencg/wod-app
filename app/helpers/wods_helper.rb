@@ -15,6 +15,14 @@ module WodsHelper
     end
   end
 
+  def is_wod_favorite(wod, form)
+    if(current_user.has_wod_id(wod.id))
+      form.submit('Unmark as Favorite', class: 'btn btn-outline-warning')
+    else
+      form.submit('Mark as Favorite', class: 'btn btn-warning')
+    end
+  end
+
   private
   def search_filter_button form
     content_tag :div, form.submit('Search', class: 'btn btn-secondary'), class: 'form-group float-right'
