@@ -8,9 +8,11 @@
       <div class="navbar-nav">
         <%= link_to "Home", wods_path, class: 'nav-item nav-link' %>
       </div>
-      <div class="navbar-nav">
-        <%= link_to "Create Rich's Wods", wod_creator_create_path, class: 'nav-item nav-link' %>
-      </div>
+      <% if logged_in?(:admin) %>
+        <div class="navbar-nav">
+          <%= link_to "Create Rich's Wods", wod_creator_create_path, class: 'nav-item nav-link' %>
+        </div>
+      <% end %>
       <div class="navbar-nav">
         <%= link_to "Wod logs", wod_log_index_path, class: 'nav-item nav-link' %>
       </div>
@@ -20,7 +22,7 @@
     </div>
     <form class="form-inline">
       <%= link_to destroy_user_session_path, :method => :delete, :class => 'nav-item nav-link' do %>
-        Log out
+        <%= current_user.name %>, Log out
       <% end %>
     </form>
   <% end %>

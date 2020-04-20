@@ -54,6 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Authentication
 gem 'devise'
+gem 'petergate', '~> 2.0', '>= 2.0.1'
 
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
