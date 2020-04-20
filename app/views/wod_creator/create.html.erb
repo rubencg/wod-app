@@ -1,0 +1,21 @@
+<h1>Create Wod</h1>
+<%= form_with(url: "upload", method: "post") do |f| %>
+  <div class="form-row">
+    <div class="form-group col-md-6 ng-star-inserted">
+      <div class="form-group">
+        <%= f.label :week_name %>
+        <%= f.text_field :week_name, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12 ng-star-inserted">
+      <div class="form-group">
+        <%= f.label :json_string %>
+        <%= f.text_area :json_string, class: "form-control", rows: 12 %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Create", class: "btn btn-success" %>
+
+<% end %>

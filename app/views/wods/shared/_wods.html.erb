@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap justify-content-center">
+  <% @wods.each do |wod| %>
+    <div class="card wod-card">
+      <div class="card-header">
+        <%= wod.title %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= wod.desc_html %></p>
+      </div>
+      <div class="card-footer">
+        <a href="<%= wod_path(wod) %>" class="btn btn-primary">Open Wod</a>
+      </div>
+    </div>
+  <% end %>
+</div>

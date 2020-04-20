@@ -1,0 +1,23 @@
+// Place all the styles related to the wods controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.wod-card{
+    width: 20rem;
+    margin: 10px;
+}
+.wod-detail-card{
+    margin: 10px;
+    background-color: black;
+}
+.wod-top-buttons{
+  margin: 10px;
+}
+.show-notes {
+  color: gray;
+}
+.show-notes h4{
+  font-size: small;
+}
+.show-notes div{
+  font-size: small;
+}

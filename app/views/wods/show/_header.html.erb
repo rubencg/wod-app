@@ -1,0 +1,10 @@
+<%= form_with(url: mark_favorite_wod_path, method: 'post') do |form| %>
+  <div class="row">
+    <div class="col">
+      <div class="float-right">
+        <%= is_wod_favorite wod, form %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<hr>

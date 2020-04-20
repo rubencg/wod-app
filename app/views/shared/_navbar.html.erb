@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "Tiki Wods", wods_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if current_user.is_a?(User) %>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "Home", wods_path, class: 'nav-item nav-link' %>
+      </div>
+      <div class="navbar-nav">
+        <%= link_to "Create Rich's Wods", wod_creator_create_path, class: 'nav-item nav-link' %>
+      </div>
+      <div class="navbar-nav">
+        <%= link_to "Wod logs", wod_log_index_path, class: 'nav-item nav-link' %>
+      </div>
+      <div class="navbar-nav">
+        <%= link_to "Favorites", favorites_path, class: 'nav-item nav-link' %>
+      </div>
+    </div>
+    <form class="form-inline">
+      <%= link_to destroy_user_session_path, :method => :delete, :class => 'nav-item nav-link' do %>
+        Log out
+      <% end %>
+    </form>
+  <% end %>
+</nav>

@@ -1,0 +1,30 @@
+<div>
+  <h4>Filters</h4>
+  <%= form_for(:search, url: wods_path, method: 'get') do |form| %>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control", value: params['search'] ? params['search']['name'] : "", autofocus: true %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <%= form.label :category %>
+          <%= collection_select(:search, :category_id, Category.all, :id, :name, {:prompt => "Select Category",
+                                                                                  selected: params['search'] ? params['search']['category_id'] : ""},
+                                {:class => 'form-control'}) %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <%= form.label :week_name %>
+          <%= collection_select(:search, :week_name, Wod.available_weeks, :week_name, :week_name, {:prompt => "Select Week",
+                                                                                                   selected: params['search'] ? params['search']['week_name'] : ""},
+                                {:class => 'form-control'}) %>
+        </div>
+      </div>
+    </div>
+    <%= filter_buttons form, params['search'] %>
+  <% end %>
+</div>

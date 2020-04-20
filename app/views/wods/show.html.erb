@@ -1,0 +1,15 @@
+<%= render 'wods/show/header', wod: @wod %>
+<% @wods.each do |wod| %>
+  <div class="card wod-detail-card">
+    <div class="card-header">
+      <%= wod.title %>
+    </div>
+    <div class="card-body">
+      <%= wod.desc_html %>
+      <%= show_notes wod %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Log wod', new_wod_log_path(wod_id: wod.id), class: "card-link" %>
+    </div>
+  </div>
+<% end %>
