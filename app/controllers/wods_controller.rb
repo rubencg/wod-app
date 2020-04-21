@@ -26,7 +26,7 @@ class WodsController < ApplicationController
     if @wod.week_name.blank?
       @wods = Wod.where(id: @wod.id)
     else
-      @wods = Wod.where(wod_group: @wod.wod_group).order(:order)
+      @wods = Wod.where(wod_group: @wod.wod_group, week_name: @wod.week_name).order(:order)
     end
   end
 
