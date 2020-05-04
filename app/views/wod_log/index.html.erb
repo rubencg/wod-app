@@ -1,16 +1,20 @@
-<div class="d-flex flex-wrap justify-content-center">
-  <% @wod_logs.each do |wod_log| %>
-    <div class="card wod-detail-card">
-      <div class="card-header">
-        <%= wod_log.wod.title %>
+<h1>Wod logs de <%= current_user.name %></h1>
+<hr/>
 
-      </div>
-      <div class="card-body">
-        <p class="card-text"><%= wod_log.wod.desc_html %></p>
-      </div>
-      <div class="card-footer">
-        <p>Time: <%= wod_log.minutes %>:<%= wod_log.seconds %></p>
-        <p>Date: <%= wod_log.formatted_created_at %></p>
+<div class="row">
+  <% @wod_logs.each do |wod_log| %>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm wod-card">
+        <div class="card-header">
+          <%= wod_log.wod.title %>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= wod_log.wod.desc_html %></p>
+        </div>
+        <div class="card-footer">
+          <p>Time: <%= wod_log.minutes %>:<%= wod_log.seconds %></p>
+          <p>Date: <%= wod_log.formatted_created_at %></p>
+        </div>
       </div>
     </div>
   <% end %>
