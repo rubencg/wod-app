@@ -2,6 +2,9 @@
 <hr/>
 
 <div class="row">
+  <%= paginate @wod_logs %>
+</div>
+<div class="row">
   <% @wod_logs.each do |wod_log| %>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm wod-card">
@@ -18,4 +21,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="row">
+  <%= paginate @wod_logs %>
 </div>

@@ -18,6 +18,8 @@ class WodsController < ApplicationController
     else
       @wods = Wod.main_wods
     end
+
+    @wods = @wods.order(:created_at).page(params[:page]).per(9)
   end
 
   # GET /wods/1
@@ -79,7 +81,7 @@ class WodsController < ApplicationController
   end
 
   def favorites
-    @wods = current_user.wods
+    @wods = current_user.wods.order(:created_at).page(params[:page]).per(9)
   end
 
   def mark_favorite

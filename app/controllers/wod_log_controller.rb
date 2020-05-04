@@ -2,7 +2,7 @@ class WodLogController < ApplicationController
   before_action :set_wod, only: [:new, :create]
 
   def index
-    @wod_logs = WodLog.where(user_id: current_user.id)
+    @wod_logs = WodLog.where(user_id: current_user.id).order(:created_at).page(params[:page]).per(9)
   end
 
   def new
