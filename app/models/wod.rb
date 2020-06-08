@@ -9,7 +9,7 @@ class Wod < ApplicationRecord
     end
 
     def self.available_weeks
-        where.not(week_name: nil).select(:week_name).distinct
+        where.not(week_name: nil).select(:week_name).distinct.order(:week_name)
     end
 
     def desc_html
